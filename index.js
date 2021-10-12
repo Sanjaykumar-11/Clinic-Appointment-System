@@ -6,6 +6,8 @@ var path    = require("path");
 var mysql = require('mysql2');
 var bodyParser = require('body-parser');
 
+app.use(express.static('reception/script'));
+app.use(express.static('reception/styles'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -22,6 +24,14 @@ if (err) {console.log(err,"Connection Error");}
 
 app.get('/reception',function(req,res){
   res.sendFile(path.join(__dirname+'/reception/reception.html'));
+});
+
+app.get('/viewapp',function(req,res){
+  res.sendFile(path.join(__dirname+'/reception/viewappointment.html'));
+});
+
+app.get('/logout',function(req,res){
+  res.sendFile(path.join(__dirname+'reception/logout.html'));
 });
 
 app.get('/makeappointment',function(req,res){
