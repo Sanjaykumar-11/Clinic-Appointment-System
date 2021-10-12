@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Medicine</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="addmedicine.js"></script> 
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="usestyle.css">
+    
+</head>
+<body ng-app="myApp">   
+
+    <div class="container">
+        <center>
+            <h2>Patient Medicine list</h2>
+            <div ng-controller="firstController">
+                <label>Search: </label>
+                <input type="text" ng-model="name" placeholder="Enter the Patient Name" style="height:25px;width: 250px;"><br><br><br>
+                <table>
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Medicine name </th>
+                        <th>Medicine count</th>
+                        <th>Delete</th>
+
+                    </tr>
+                    <tr ng-repeat="x in patient_records | filter:{'Name':name}">
+
+                        <td>{{x.Name}}</td>
+                        <td>{{x.age}}</td>
+                        <td>{{x.medicinename}}</td>
+                        <td>{{x.medicinecount}}</td>
+                        <td><button class="btn btn-danger" ng-click="removepatient($index)">remove</button></td>
+
+
+                    </tr>
+                </table>
+                <br>
+                <div class="container" style="border:solid;border-radius:10px" >
+                    <h3>Add</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                Name:
+                                <input type="text" class="form-control" ng-model="name1">
+
+                            </div>
+                            <div class="col-sm-6">
+                                Age:
+                                <input type="number" class="form-control" ng-model="age"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Medicine name:   
+                                <input type="text" ng-model="medicinename" class="form-control">
+                            </div>
+                            <div class="col-sm-6">
+                                Medicine count:
+                                <input type="text" ng-model="phone" class="form-control"><br><br>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" ng-click="addpatient()">Add</button>
+                    </form>
+                </div>
+            </div>
+        </center>
+    </div>
+</body>
+</html>

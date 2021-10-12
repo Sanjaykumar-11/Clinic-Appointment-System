@@ -1,0 +1,31 @@
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.side #search {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+    width: 100%;
+    z-index: 100; /* This may or may not be needed, but it _will_ interfere
+                     with the 'my subreddits' dropdown which will have to be
+                     fixed with a z-index of its own */
+}

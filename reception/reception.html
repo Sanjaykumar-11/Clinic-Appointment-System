@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Receptionist</title>
+
+<head>
+    <h1 style="text-align: center; font-size: 30px;"> CLINIC APPOINTMENT SYSTEM </h1>
+</head>
+<link rel="stylesheet" href="styles/stylesheet1.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="script/directive.js"></script>
+
+<body>
+    <ul>
+        <li><a href="viewappointment.html">View appointments</a></li>
+        <li><a href="makeappointment.html">Make appointment</a></li>
+        <li style="float:right"><a href="logout.html">Logout</a></li>
+    </ul>
+    <div ng-app="DirectiveApp">
+        <br><br>
+        <div ng-controller="MoneyController">
+            <center>
+                <form action="/reception" method="post">
+                    <input type="text" name="Patientid" ng-model="name" placeholder="PatientID"><br><br>
+                    <input type="number" name="Amount" min="0" ng-model="amount" placeholder="Enter the amount"><br><br>
+                    <confirm></confirm>
+                    <h2>{{amount | currency : "INR ": 2}}</h2>
+                    <center><button>ADD</button></center>
+                </form>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>

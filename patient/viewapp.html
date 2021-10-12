@@ -1,0 +1,106 @@
+<Doctype html>
+<title>Appointment Form</title>
+<head><h1><center>Clinic Appointment System</center></head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<link rel="stylesheet" href="search.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	table, td, th {
+    border: 1px solid black;
+	}
+	table, td {
+	width: 75%;
+	height: 25%;
+    border-collapse: collapse;
+    }
+	table.center {
+	margin-left: auto; 
+	margin-right: auto;
+	}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-top: 30px;
+    }
+	td {
+  text-align: center;
+	}
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    .topnav a:hover {
+      background-color: red;
+      color: black;
+    }
+	.center{
+	margin: 0 auto;
+	}
+	.SearchBar {
+                position: absolute;
+                top: 190px;
+                left: 550px;
+                height: 35px;
+                width: 500px;
+            }
+</style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="home.html">Home</a>
+        <a href="app.html">View Appointment</a>
+        <a href="logout.html">Logout</a>
+      </div>
+	  <br>
+	  <br>
+	  <center>
+      <div class="container" ng-app="RecordApp" ng-controller="RecordController">
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" placeholder="Search.." name="search" ng-model="searchKeyword[SearchTerm]" class="SearchBar">
+			</div>
+        </div>
+		<br>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="center">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>File</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Record in RecordList | filter: searchKeyword">
+                            <td>{{ Record.date}}</td>
+                            <td><input type="file"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	</center>
+    <script>
+      var RecordApp = angular.module("RecordApp", []);
+      RecordApp.controller('RecordController', function ($scope) {
+          $scope.searchKeyword = {}
+          $scope.SearchTerm = '$';
+          $scope.RecordList = [
+                  { "date": "26/12/2021","file": "click"},
+                  { "date": "31/08/2021","file":"click"},
+          ];
+      });
+  </script>
+  <script src="logout.js"></script>
+</body>
+</html>

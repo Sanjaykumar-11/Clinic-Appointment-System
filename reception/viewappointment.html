@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <title>View patients</title>
+</head>
+
+<body>
+
+    <head>
+        <h1 style="text-align: center; font-size: 30px;"> CLINIC APPOINTMENT SYSTEM </h1>
+    </head>
+    <link rel="stylesheet" href="styles/stylesheet1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="script/tableContent.js"></script>
+    <body>
+        <ul>
+            <li><a href="reception.html">Home</a></li>
+            <li><a href="makeappointment.html">Make appointment</a></li>
+            <li style="float:right"><a href="login.html">Logout</a></li>
+        </ul>
+        <script>
+            
+        </script>
+
+        <body ng-app="Appointment">
+            <div ng-controller="myController">
+                <center>
+                    <h1 style="color: #333;">PATIENT RECORD</h2>
+                        <input type="text" ng-model="search" placeholder="Search" style="padding: 10px 8px; font-size: 22px;"><br><br><br>
+                        <table id="patienttable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Symptom</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr ng-repeat="item in patient | filter: search">
+                                <td>{{item.id}}</td>
+                                <td>{{item.Name | uppercase}}</td>
+                                <td>{{item.Age | number}}</td>
+                                <td>{{item.Gender | uppercase}}</td>
+                                <td>{{item.Address | uppercase}}</td>
+                                <td>{{item.Symptom | uppercase}}</td>
+                                <td>{{item.Appointment_Date | date: medium}}</td>
+                                <td>{{item.Appointment_time}}</td>
+                            </tr>
+                        </table>
+                </center>
+            </div>
+        </body>
+    </body>
+
+    </html>

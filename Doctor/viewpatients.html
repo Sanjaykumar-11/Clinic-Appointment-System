@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Patients</title>
+<h1 style="text-align:center">Clinic Appointment System</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="viewpatients.js"></script> 
+<style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.table, td, th {
+border: 0.5px solid ;
+border-width: 4px;
+border-color:black;
+}
+.table {
+border-collapse: collapse;
+width: 700px;
+height: 150px;
+margin-left: 350px;
+border: solid;
+border-width: 2px;
+}
+.td {
+text-align: center;
+border-width: 3px;
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../home.html">Home</a> 
+        <a href="../contact.html">Contact Us</a>
+        <a href=""
+      </div>
+</body>
+
+<h3 style="text-align: left;">Patient Records</h3>
+<link rel="stylesheet" href="style.css">
+<body ng-app="myApp">
+<div ng-controller="firstController">
+<input type="text" ng-model="patient_name" placeholder="Enter the Patient Name" style="height:25px;width: 250px;"><br><br><br>
+<table>
+<tr>
+<th>SNo</th>
+<th>Date</th>
+<th>Patient Name</th>
+<th>Prescription</th>
+<th>Update Record</th>
+<th>Cancel Record</th>
+</tr>
+<tr ng-repeat="x in patient_records | filter:{'PatientName':patient_name}">
+<td>{{x.SNo}}</td>
+<td>{{x.Date}}</td>
+<td>{{x.PatientName}}</td>
+<td>{{x.Prescription}}</td>
+<td>{{x.UpdateRecord}}</td>
+<td>{{x.CancelRecord}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

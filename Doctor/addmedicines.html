@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>Add Medicine</title>
+<h1 style="text-align:center">Clinic Appointment System</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="addmedicines.js"></script> 
+<style>
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    
+    .dropdown .dropbtn {
+      font-size: 16px;  
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+    
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    body 
+    {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#main">Home</a>
+            <a href="#contact">Contact Us</a>
+            <div class="dropdown">
+              <button class="dropbtn">Login  
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#doctor">Doctor</a>
+                <a href="#patient">Patient</a>
+                <a href="#receiptionist">Receiptionist</a>
+              </div>
+            </div> 
+          </div>
+<h1>Add Medicine</h1> 
+    <div ng-app="AddmedicineApp">
+    <div ng-controller='AddMedicineController as itemAdder'> 
+    <input type="text" ng-model="itemAdder.itemName" placeholder="Medicine Name"> 
+    <input type="text" ng-model="itemAdder.itemQuantity" placeholder="Medicine Count"> 
+    <button ng-click="itemAdder.addItem();">Add Medicine To Patient</button> 
+    </div> 
+    <div ng-controller='AddMedicineShowController as showList'>
+     <ol> 
+    <li ng-repeat="item in showList.items">Medicine {{ item.name }} count of {{ item.quantity }} 
+    <button ng-click="showList.removeItem($index);">Remove Medicine</button> 
+    </li> 
+    </ol> </div> 
+    </body>
+</html>   
