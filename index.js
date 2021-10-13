@@ -25,9 +25,20 @@ if (err) {console.log(err,"Connection Error");}
 app.get('/reception',function(req,res){
   res.sendFile(path.join(__dirname+'/reception/reception.html'));
 });
-
 app.get('/viewapp',function(req,res){
   res.sendFile(path.join(__dirname+'/reception/viewappointment.html'));
+});
+
+app.get('/viewappointment',function(req,res){
+  var menu;
+  var sql = "SELECT * FROM patientrecord"
+  con.query(sql, function(err, result)
+  {
+    if(err) throw err;
+    menu = result;
+    console.log(result);
+    res.send(menu);
+  })
 });
 
 app.get('/logout',function(req,res){

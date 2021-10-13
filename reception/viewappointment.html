@@ -36,14 +36,14 @@
                                 <th>Time</th>
                             </tr>
                             <tr ng-repeat="item in patient | filter: search">
-                                <td>{{item.id}}</td>
-                                <td>{{item.Name | uppercase}}</td>
+                                <td>{{item.Patientid}}</td>
+                                <td>{{item.PatientName | uppercase}}</td>
                                 <td>{{item.Age | number}}</td>
                                 <td>{{item.Gender | uppercase}}</td>
                                 <td>{{item.Address | uppercase}}</td>
-                                <td>{{item.Symptom | uppercase}}</td>
-                                <td>{{item.Appointment_Date | date: medium}}</td>
-                                <td>{{item.Appointment_time}}</td>
+                                <td>{{item.Symptoms | uppercase}}</td>
+                                <td>{{item.Date | date: medium}}</td>
+                                <td>{{item.Time | date: "hh:mm"}}</td>
                             </tr>
                         </table>
                 </center>
